@@ -15,10 +15,22 @@ export class AppComponent {
   }//Injecting the client
   
   ngOnInit(): void{
-    this.http.get<UserResponse>("https://api.github/users/abdullah").subscribe(data =>{ //Get pulls or extracts the data from the api{
-    console.log("User Login: "+ data.login);
-    console.log("Bio:"+ data.bio);
-    });
-    //Only extracting what i want
+   
+    //http Post- Allows you to insert the data
+   const req = this.http.post('http://jsonplaceholder.typicode.com/posts',
+    {
+    title: 'foo',
+    body: 'bar',
+    userId: 1
+   })
+   .subscribe(
+    res => {
+      console.log(res);
+    },
+    err => {
+      console.log("Error occured");
+    }
+   );
+    
   }
   }
