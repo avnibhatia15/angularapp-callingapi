@@ -14,9 +14,8 @@ export class AppComponent {
   }//Injecting the client
   
   ngOnInit(): void{
-    this.http.get("https://api.github/users/abdullah").toPromise() //Get pulls or extracts the data from the api
-    .then((data: any) => {
-    console.log(data)
+    this.http.get("https://api.github/users/abdullah").subscribe(data =>{ //Get pulls or extracts the data from the api{
+    console.log(data);
     });
     //Calling the api using promise.
     //Promise- If you want to make a asyncronous call(Having more than one line of code)
